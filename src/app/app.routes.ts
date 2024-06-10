@@ -17,6 +17,6 @@ export const routes: Routes = [
   {
     path: 'todos-with-component',
     component: TodosWithComponentComponent,
-    title: 'Todos with component'
+    title: 'Todos with component page'
   }
 ];
