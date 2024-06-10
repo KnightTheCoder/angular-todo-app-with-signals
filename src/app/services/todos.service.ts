@@ -5,22 +5,16 @@ import { Todo } from '../models/todo';
   providedIn: 'root'
 })
 export class TodosService {
-  private internalTodos: WritableSignal<Todo[]>;
+  private internalTodos = signal<Todo[]>([
+    {
+      id: 1,
+      name: 'Complete me please',
+      isCompleted: false
+    }
+  ]);
   private idCounter = computed(() => this.internalTodos().length + 1);
 
-  constructor() {
-    this.internalTodos = signal<Todo[]>([
-      {
-        id: 1,
-        name: 'Complete me please',
-        isCompleted: false
-      }
-    ]);
-  }
-
-  readonly todos = computed(() => {
-    return this.internalTodos.asReadonly()();
-  });
+  readonly todos = this.internalTodos.asReadonly();
 
   getAllTodos(): Todo[] {
     return this.internalTodos();
