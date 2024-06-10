@@ -93,10 +93,8 @@ export class TodosComponent {
   editedTodo = signal(-1);
   filteredTodos = computed(() =>
     this.showOnlyCompletedTodos()
-      ? this.todosService
-          .todos()()
-          .filter((todo) => !todo.isCompleted)
-      : this.todosService.todos()()
+      ? this.todosService.todos().filter((todo) => !todo.isCompleted)
+      : this.todosService.todos()
   );
 
   submitTodo() {

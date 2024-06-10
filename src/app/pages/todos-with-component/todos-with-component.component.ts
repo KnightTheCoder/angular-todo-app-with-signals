@@ -34,6 +34,7 @@ import { FormsModule } from '@angular/forms';
     </button>
 
     <div>
+      @if (filteredTodos().length) {
       <ul>
         @for (todo of filteredTodos(); track todo.id) {
         <app-todo-item
@@ -48,6 +49,9 @@ import { FormsModule } from '@angular/forms';
         <br />
         }
       </ul>
+      } @else {
+      <h2>There aren't any todos left...</h2>
+      }
     </div>
   `,
   styleUrl: './todos-with-component.component.css'
@@ -60,10 +64,8 @@ export class TodosWithComponentComponent {
   editedTodo = signal(-1);
   filteredTodos = computed(() =>
     this.showOnlyCompletedTodos()
-      ? this.todosService
-          .todos()()
-          .filter((todo) => !todo.isCompleted)
-      : this.todosService.todos()()
+      ? this.todosService.todos().filter((todo) => !todo.isCompleted)
+      : this.todosService.todos()
   );
 
   constructor() {

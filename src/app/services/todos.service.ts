@@ -18,8 +18,8 @@ export class TodosService {
     ]);
   }
 
-  public todos = computed(() => {
-    return this.internalTodos;
+  readonly todos = computed(() => {
+    return this.internalTodos.asReadonly()();
   });
 
   getAllTodos(): Todo[] {
