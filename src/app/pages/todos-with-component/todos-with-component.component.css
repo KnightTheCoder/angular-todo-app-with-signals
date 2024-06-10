@@ -1,0 +1,25 @@
+ul {
+  padding-left: 0;
+}
+
+.form-add {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.form-add input {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+div {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.completed-button {
+  display: block;
+  width: 20em;
+  margin: 0 auto;
+  margin-top: 10px;
+}

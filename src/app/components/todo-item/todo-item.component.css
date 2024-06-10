@@ -1,0 +1,40 @@
+li {
+  background-color: #eee;
+  box-shadow: 2px 2px 0 #ccc;
+  display: inline-block;
+  color: var(--background-color);
+  padding: 2px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.btn-delete {
+  background-color: red;
+  border-radius: 33%;
+}
+
+.btn-delete:hover {
+  background-color: rgb(218, 78, 78);
+}
+
+.btn-edit {
+  background-color: rgb(39, 78, 187);
+  color: var(--primary-color);
+}
+
+.btn-edit:hover {
+  background-color: rgb(50, 93, 211);
+}
+
+.btn-cancel {
+  background-color: yellow;
+  color: var(--background-color);
+}
+
+.btn-cancel:hover {
+  background-color: rgb(223, 223, 15);
+}

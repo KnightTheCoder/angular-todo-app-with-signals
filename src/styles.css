@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #ddd;
+  --background-color: #333;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+
+button {
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  padding: 6px;
+  margin-top: 4px;
+  background-color: #232323;
+  color: var(--primary-color);
+  user-select: none;
+}
+
+button:hover {
+  background-color: #454545;
+  cursor: pointer;
+}
+
+input[type='text'] {
+  border-radius: 6px;
+  color: var(--primary-color);
+  background-color: #232323;
+  padding: 4px;
+  margin-right: 10px;
+}
+
+input[type='text']:hover {
+  box-shadow: 2px 4px 6px #ccc;
+}

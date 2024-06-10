@@ -1,0 +1,8 @@
+main {
+  max-width: 1440px;
+  margin: 40px auto;
+  background-color: #505050;
+  border-radius: 8px;
+  padding: 6px;
+  height: 60vh;
+}
