@@ -24,13 +24,9 @@ import { FormsModule } from '@angular/forms';
 
     <button
       class="completed-button"
-      (click)="showOnlyCompletedTodos.set(!showOnlyCompletedTodos())"
+      (click)="hideCompletedTodos.set(!hideCompletedTodos())"
     >
-      {{
-        showOnlyCompletedTodos()
-          ? 'Show all todos'
-          : 'Show only completed todos'
-      }}
+      {{ hideCompletedTodos() ? 'Show all todos' : 'Hide completed todos' }}
     </button>
 
     <div>
@@ -60,10 +56,10 @@ export class TodosWithComponentComponent {
   todosService: TodosService = inject(TodosService);
   newTodoName = signal('');
   editTodoName = signal('');
-  showOnlyCompletedTodos = signal(false);
+  hideCompletedTodos = signal(false);
   editedTodo = signal(-1);
   filteredTodos = computed(() =>
-    this.showOnlyCompletedTodos()
+    this.hideCompletedTodos()
       ? this.todosService.todos().filter((todo) => !todo.isCompleted)
       : this.todosService.todos()
   );

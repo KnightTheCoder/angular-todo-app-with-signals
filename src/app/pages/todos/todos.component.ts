@@ -23,16 +23,13 @@ import { Todo } from '../../models/todo';
 
     <button
       class="completed-button"
-      (click)="showOnlyCompletedTodos.set(!showOnlyCompletedTodos())"
+      (click)="hideCompletedTodos.set(!hideCompletedTodos())"
     >
-      {{
-        showOnlyCompletedTodos()
-          ? 'Show all todos'
-          : 'Show only completed todos'
-      }}
+      {{ hideCompletedTodos() ? 'Show all todos' : 'Hide completed todos' }}
     </button>
 
     <div>
+      @if (filteredTodos().length) {
       <ul>
         @for (todo of filteredTodos(); track todo.id) {
         <li [className]="todo.isCompleted ? 'completed' : ''">
@@ -81,6 +78,9 @@ import { Todo } from '../../models/todo';
         <br />
         }
       </ul>
+      } @else {
+      <h2>There aren't any todos left...</h2>
+      }
     </div>
   `,
   styleUrl: './todos.component.css'
@@ -89,10 +89,10 @@ export class TodosComponent {
   todosService: TodosService = inject(TodosService);
   newTodoName = signal('');
   editTodoName = signal('');
-  showOnlyCompletedTodos = signal(false);
+  hideCompletedTodos = signal(false);
   editedTodo = signal(-1);
   filteredTodos = computed(() =>
-    this.showOnlyCompletedTodos()
+    this.hideCompletedTodos()
       ? this.todosService.todos().filter((todo) => !todo.isCompleted)
       : this.todosService.todos()
   );

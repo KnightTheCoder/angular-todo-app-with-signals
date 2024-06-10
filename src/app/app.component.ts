@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
@@ -10,5 +10,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-ng-content-test';
+  // title = 'angular-ng-content-test';
+  currentYear = computed(() => new Date().getFullYear());
 }

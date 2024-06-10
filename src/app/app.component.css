@@ -6,3 +6,16 @@ main {
   padding: 6px;
   min-height: 60vh;
 }
+
+footer {
+  display: inline-block;
+  position: absolute;
+  width: 100vw;
+  background-color: #505050;
+  left: 0;
+  bottom: 0;
+}
+
+h3 {
+  text-align: center;
+}
