@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { TodoItemComponent } from '../../components/todo-item/todo-item.component';
 import { Todo } from '../../models/todo';
 import { TodosService } from '../../services/todos.service';
@@ -39,6 +39,7 @@ import { FormsModule } from '@angular/forms';
         <app-todo-item
           [todo]="todo"
           [editedTodo]="editedTodo()"
+          [(editTodoName)]="editTodoName"
           (onCompleteTodo)="toggleCompleteTodo($event)"
           (onToggleEdit)="toggleEdit($event)"
           (onDeleteTodo)="deleteTodo($event)"
@@ -54,6 +55,7 @@ import { FormsModule } from '@angular/forms';
 export class TodosWithComponentComponent {
   todosService: TodosService = inject(TodosService);
   newTodoName = signal('');
+  editTodoName = signal('');
   showOnlyCompletedTodos = signal(false);
   editedTodo = signal(-1);
   filteredTodos = computed(() =>
@@ -63,6 +65,19 @@ export class TodosWithComponentComponent {
           .filter((todo) => !todo.isCompleted)
       : this.todosService.todos()()
   );
+
+  constructor() {
+    effect(
+      () => {
+        if (this.editedTodo() !== -1) {
+          this.editTodoName.set(
+            this.todosService.getTodoById(this.editedTodo())?.name ?? ''
+          );
+        }
+      },
+      { allowSignalWrites: true }
+    );
+  }
 
   submitTodo() {
     const newTodo: Todo = {

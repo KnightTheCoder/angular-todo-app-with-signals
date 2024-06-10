@@ -1,4 +1,4 @@
-import { Component, effect, input, output, signal } from '@angular/core';
+import { Component, input, model, output } from '@angular/core';
 import { Todo } from '../../models/todo';
 import { FormsModule } from '@angular/forms';
 
@@ -54,23 +54,12 @@ import { FormsModule } from '@angular/forms';
 export class TodoItemComponent {
   todo = input.required<Todo>();
   editedTodo = input.required<number>();
-  editTodoName = signal('');
+  editTodoName = model('');
 
   onCompleteTodo = output<Todo>();
   onUpdateTodo = output<Todo>();
   onToggleEdit = output<number>();
   onDeleteTodo = output<number>();
-
-  constructor() {
-    effect(
-      () => {
-        if (this.editedTodo() === this.todo().id) {
-          this.editTodoName.set(this.todo().name);
-        }
-      },
-      { allowSignalWrites: true }
-    );
-  }
 
   toggleCompleteTodo() {
     this.onCompleteTodo.emit(this.todo());
@@ -79,15 +68,10 @@ export class TodoItemComponent {
   updateTodo() {
     let updatedTodo = { ...this.todo(), name: this.editTodoName() };
     this.onUpdateTodo.emit(updatedTodo);
-    // this.editTodoName.set('');
   }
 
   toggleEdit(id: number) {
     this.onToggleEdit.emit(id);
-
-    // if (id !== -1) {
-    //   this.editTodoName.set(this.todo().name);
-    // }
   }
 
   deleteTodo() {
