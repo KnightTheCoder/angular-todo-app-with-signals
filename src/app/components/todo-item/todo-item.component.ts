@@ -54,7 +54,7 @@ import { FormsModule } from '@angular/forms';
 export class TodoItemComponent {
   todo = input.required<Todo>();
   editedTodo = input.required<number>();
-  editTodoName = model('');
+  editTodoName = model.required<string>();
 
   onCompleteTodo = output<Todo>();
   onUpdateTodo = output<Todo>();
