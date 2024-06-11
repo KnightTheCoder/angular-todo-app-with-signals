@@ -10,6 +10,5 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  // title = 'angular-ng-content-test';
   currentYear = computed(() => new Date().getFullYear());
 }

@@ -54,14 +54,15 @@ import { FormsModule } from '@angular/forms';
 })
 export class TodosWithComponentComponent {
   todosService: TodosService = inject(TodosService);
+  todos = this.todosService.todos;
   newTodoName = signal('');
   editTodoName = signal('');
   hideCompletedTodos = signal(false);
   editedTodo = signal(-1);
   filteredTodos = computed(() =>
     this.hideCompletedTodos()
-      ? this.todosService.todos().filter((todo) => !todo.isCompleted)
-      : this.todosService.todos()
+      ? this.todos().filter((todo) => !todo.isCompleted)
+      : this.todos()
   );
 
   constructor() {
