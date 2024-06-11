@@ -8,6 +8,7 @@ import { Router, RouterModule } from '@angular/router';
   standalone: true,
   imports: [FormsModule, RouterModule],
   template: `
+    <h1>Search among todos</h1>
     <input
       type="text"
       [(ngModel)]="searchQuery"

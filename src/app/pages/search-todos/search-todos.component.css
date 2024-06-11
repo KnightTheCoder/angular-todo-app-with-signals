@@ -1,6 +1,13 @@
+h1 {
+  text-align: center;
+}
+
 input {
   display: block;
   margin: 0 auto;
+  width: 90%;
+  background-color: #ccc;
+  color: #232323;
 }
 
 div {
