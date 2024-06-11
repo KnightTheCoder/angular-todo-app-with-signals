@@ -1,0 +1,14 @@
+input {
+  display: block;
+  margin: 0 auto;
+}
+
+div {
+  width: max-content;
+  margin: 30px auto;
+}
+
+.item:hover {
+  cursor: pointer;
+  box-shadow: 0px 2px 0px #ccc;
+}

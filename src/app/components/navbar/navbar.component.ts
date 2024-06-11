@@ -29,6 +29,13 @@ import { RouterModule } from '@angular/router';
         >
           Todos with component
         </a>
+
+        <a
+          routerLink="search"
+          routerLinkActive="active-link"
+        >
+          Search
+        </a>
       </nav>
     </header>
   `,
