@@ -75,7 +75,6 @@ import { Todo } from '../../models/todo';
             X
           </button>
         </li>
-        <br />
         }
       </ul>
       } @else {

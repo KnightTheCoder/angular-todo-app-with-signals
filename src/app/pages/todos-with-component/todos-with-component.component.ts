@@ -42,7 +42,6 @@ import { FormsModule } from '@angular/forms';
           (onDeleteTodo)="deleteTodo($event)"
           (onUpdateTodo)="updateTodo($event)"
         ></app-todo-item>
-        <br />
         }
       </ul>
       } @else {

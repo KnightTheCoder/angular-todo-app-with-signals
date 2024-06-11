@@ -5,11 +5,12 @@ ul {
 li {
   background-color: #eee;
   box-shadow: 2px 2px 0 #ccc;
-  display: inline-block;
+  display: block;
   color: var(--background-color);
   padding: 2px;
   border-radius: 6px;
   margin-bottom: 20px;
+  width: fit-content;
 }
 
 .form-add {

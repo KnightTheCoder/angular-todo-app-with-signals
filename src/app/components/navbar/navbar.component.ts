@@ -19,6 +19,7 @@ import { RouterModule } from '@angular/router';
         <a
           routerLink="todos"
           routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
         >
           Todos
         </a>

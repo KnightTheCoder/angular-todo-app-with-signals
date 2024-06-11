@@ -9,19 +9,20 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
   standalone: true,
   imports: [InfoCardComponent, RouterModule],
   template: `
-    <app-info-card>
-      <p id="id">Id: {{ todo()?.id }}</p>
-      <p id="name">Name: {{ todo()?.name }}</p>
-      <p id="complete">Status: {{ status() }}</p>
-    </app-info-card>
-
-    <button
-      class="btn-delete"
-      (click)="deleteTodo()"
-    >
-      Delete
-    </button>
-    <a routerLink="/search">Back to search page</a>
+    <div>
+      <app-info-card>
+        <p id="id">Id: {{ todo()?.id }}</p>
+        <p id="name">Name: {{ todo()?.name }}</p>
+        <p id="complete">Status: {{ status() }}</p>
+      </app-info-card>
+      <button
+        class="btn-delete"
+        (click)="deleteTodo()"
+      >
+        Delete
+      </button>
+      <a routerLink="/search">Back to search page</a>
+    </div>
   `,
   styleUrl: './todo-details.component.css'
 })
