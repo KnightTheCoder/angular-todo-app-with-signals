@@ -1,7 +1,13 @@
-<app-navbar></app-navbar>
-<main>
-  <router-outlet></router-outlet>
-</main>
-<footer>
-  <h3>Made by KnightTheCoder &copy;{{currentYear()}}</h3>
-</footer>
+<div class="app">
+  <div class="content">
+    <app-navbar></app-navbar>
+    <div class="container">
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+    <footer>
+      <h3>Made by KnightTheCoder &copy;{{ currentYear() }}</h3>
+    </footer>
+  </div>
+</div>

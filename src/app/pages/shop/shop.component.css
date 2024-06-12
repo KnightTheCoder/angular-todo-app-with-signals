@@ -1,8 +1,38 @@
-div {
+.shop {
   width: fit-content;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4em;
 }
 
 h2 {
   text-align: center;
+}
+
+.cart {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+input {
+  display: inline-block;
+  width: 30px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+button {
+  padding: 10px;
+}
+
+.btn-remove {
+  padding: 2px;
+  display: inline-block;
+  background-color: red;
+}
+
+.btn-remove:hover {
+  background-color: lightcoral;
 }

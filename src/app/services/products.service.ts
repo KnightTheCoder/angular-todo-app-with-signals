@@ -8,6 +8,14 @@ export class ProductsService {
   private internalProducts = signal<Product[]>([
     {
       id: 1,
+      name: 'Water 1L',
+      description: '1L of bottled mineral water',
+      image: 'mineral_water.png',
+      price: 1,
+      quantity: 20
+    },
+    {
+      id: 2,
       name: 'Tea',
       description: 'Ordinary tea',
       image: 'tea.png',
@@ -15,7 +23,7 @@ export class ProductsService {
       quantity: 5
     },
     {
-      id: 2,
+      id: 3,
       name: 'Super expensive shit',
       description: "So expensive you can't buy",
       image: 'diamond.png',
@@ -50,7 +58,7 @@ export class ProductsService {
     this.internalProducts.update((products) =>
       products.map((item) => {
         if (item.id === product.id) {
-          return product;
+          return { ...product };
         } else {
           return item;
         }

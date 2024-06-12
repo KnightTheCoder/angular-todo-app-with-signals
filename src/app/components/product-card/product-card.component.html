@@ -9,24 +9,21 @@
 
   <p>{{ product().price }}$</p>
 
-  <p
+  <span
     id="warning"
     *ngIf="product().quantity <= 10 && !isSoldOut()"
   >
     Only {{ product().quantity }} left!
-  </p>
-
-  <p
-    id="sold-out"
-    *ngIf="isSoldOut()"
-  >
-    Sold out!
-  </p>
+  </span>
 
   <button
     (click)="addToCart()"
     [disabled]="isSoldOut()"
   >
-    Add to cart
+    <ng-container
+      *ngIf="isSoldOut(); then soldOut; else buyable"
+    ></ng-container>
+    <ng-template #buyable>Add to cart</ng-template>
+    <ng-template #soldOut>Sold out!</ng-template>
   </button>
 </div>

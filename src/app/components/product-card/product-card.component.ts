@@ -11,13 +11,12 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductCardComponent {
   product = input.required<Product>();
-  onAddToCart = output<number>();
+  onAddToCart = output<Product>();
 
   imageSource = computed(() => `images/${this.product().image}`);
-
-  isSoldOut = computed(() => this.product().quantity <= 0);
+  isSoldOut = computed(() => this.product().quantity < 1);
 
   addToCart() {
-    this.onAddToCart.emit(this.product().id);
+    this.onAddToCart.emit(this.product());
   }
 }
