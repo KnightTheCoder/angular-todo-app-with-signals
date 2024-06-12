@@ -1,0 +1,32 @@
+<div class="card">
+  <h3>{{ product().name }}</h3>
+  <p>{{ product().description }}</p>
+
+  <img
+    [src]="imageSource()"
+    [alt]="product().name"
+  />
+
+  <p>{{ product().price }}$</p>
+
+  <p
+    id="warning"
+    *ngIf="product().quantity <= 10 && !isSoldOut()"
+  >
+    Only {{ product().quantity }} left!
+  </p>
+
+  <p
+    id="sold-out"
+    *ngIf="isSoldOut()"
+  >
+    Sold out!
+  </p>
+
+  <button
+    (click)="addToCart()"
+    [disabled]="isSoldOut()"
+  >
+    Add to cart
+  </button>
+</div>

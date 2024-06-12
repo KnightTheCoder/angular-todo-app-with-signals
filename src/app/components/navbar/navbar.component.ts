@@ -37,6 +37,13 @@ import { RouterModule } from '@angular/router';
         >
           Search
         </a>
+
+        <a
+          routerLink="shop"
+          routerLinkActive="active-link"
+        >
+          Shop
+        </a>
       </nav>
     </header>
   `,

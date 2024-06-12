@@ -1,0 +1,10 @@
+<h2>Webshop local market&trade;</h2>
+
+<div>
+  @for (product of products(); track product.id) {
+  <app-product-card
+    [product]="product"
+    (onAddToCart)="addToCart($event)"
+  ></app-product-card>
+  }
+</div>

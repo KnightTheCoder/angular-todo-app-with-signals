@@ -24,6 +24,14 @@ button:hover {
   cursor: pointer;
 }
 
+button[disabled] {
+  background-color: #404040;
+}
+
+button[disabled]:hover {
+  cursor: default;
+}
+
 input[type='text'] {
   border-radius: 6px;
   color: var(--primary-color);

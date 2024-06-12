@@ -40,7 +40,7 @@ export class TodosService {
 
     this.internalTodos.update((todos) =>
       todos.map((item) => {
-        if (item.id == todo.id) {
+        if (item.id === todo.id) {
           return todo;
         } else {
           return item;
