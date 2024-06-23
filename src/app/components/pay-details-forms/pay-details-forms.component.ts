@@ -29,11 +29,11 @@ export class PayDetailsFormsComponent {
   payDetailsGroup = this.fb.group({
     firstName: ['', [Validators.required, Validators.minLength(2)]],
     lastName: ['', [Validators.required, Validators.minLength(2)]],
-    age: [0, [Validators.required, Validators.min(18)]],
+    age: ['', [Validators.required, Validators.min(18)]],
     email: ['', [Validators.required, Validators.pattern('.+@.+')]],
     country: ['', Validators.required],
     postalCode: ['', [Validators.required, Validators.minLength(4)]],
-    street: ['', Validators.required, Validators.minLength(4)],
+    street: ['', [Validators.required, Validators.minLength(4)]],
     paymentMethod: ['', Validators.required],
     acceptTerms: [false, Validators.requiredTrue]
   });

@@ -25,7 +25,7 @@ export class FormErrorComponent {
     if (this._errorMessage() !== this.defaultMessage)
       return this._errorMessage();
 
-    let newValue = '';
+    let newValue = this.defaultMessage;
 
     switch (this.errorType()) {
       case 'minlength':
