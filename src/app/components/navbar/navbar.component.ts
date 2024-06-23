@@ -44,6 +44,13 @@ import { RouterModule } from '@angular/router';
         >
           Shop
         </a>
+
+        <a
+          routerLink="checkout"
+          routerLinkActive="active-link"
+        >
+          Checkout
+        </a>
       </nav>
     </header>
   `,

@@ -5,7 +5,8 @@ h1 {
 input {
   display: block;
   margin: 0 auto;
-  width: 90%;
+  min-width: 400px;
+  max-width: 90%;
   background-color: #ccc;
   color: #232323;
 }

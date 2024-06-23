@@ -33,7 +33,7 @@ export class ProductsService {
   ]);
   private idCounter = computed(() => this.internalProducts().length + 1);
 
-  readonly products = this.internalProducts.asReadonly();
+  products = computed(() => this.internalProducts());
 
   getAllProducts(): Product[] {
     return this.internalProducts();

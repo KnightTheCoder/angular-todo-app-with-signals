@@ -4,6 +4,7 @@ import { ProductsService } from '../../services/products.service';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { Product } from '../../models/product';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop',
@@ -15,26 +16,12 @@ import { FormsModule } from '@angular/forms';
 export class ShopComponent {
   productsService = inject(ProductsService);
   shoppingCartService = inject(ShoppingCartService);
-  shoppingCart = this.shoppingCartService.products;
+  router = inject(Router);
 
   products = this.productsService.products;
 
   addToCart(product: Product) {
     this.shoppingCartService.addToCart(product);
-  }
-
-  removeFromCart(id: number) {
-    this.shoppingCartService.deleteProductById(id);
-  }
-
-  updateProductInCart(product: Product) {
-    this.shoppingCartService.updateProduct({
-      ...product,
-      quantity: product.quantity
-    });
-  }
-
-  payCart() {
-    this.shoppingCartService.payCart();
+    this.router.navigate(['/checkout']);
   }
 }

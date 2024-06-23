@@ -6,23 +6,24 @@ import { ProductsService } from './products.service';
   providedIn: 'root'
 })
 export class ShoppingCartService {
-  productsService = inject(ProductsService);
+  private productsService = inject(ProductsService);
   private internalProducts = signal<Product[]>([]);
 
   products = computed(() => this.internalProducts());
 
   totalPrice = computed(() => {
-    let total = 0;
-
-    this.internalProducts().forEach((product) => {
-      total += product.price * product.quantity;
-    });
-
-    return total;
+    return this.internalProducts()
+      .map((product) => product.quantity * product.price)
+      .reduce((prev, curr) => prev + curr, 0);
   });
 
-  getProductById(id: number): Product | undefined {
+  private getProductById(id: number): Product | undefined {
     return this.internalProducts().find((product) => product.id === id);
+  }
+
+  private createProduct(product: Product) {
+    const newProduct = { ...product, quantity: 1 };
+    this.internalProducts.update((products) => [...products, newProduct]);
   }
 
   updateProduct(product: Product) {
@@ -64,18 +65,13 @@ export class ShoppingCartService {
     if (existingProduct) {
       if (product.quantity <= existingProduct.quantity) return;
 
-      this.internalProducts.update((items) =>
-        items.map((item) => {
-          if (item.id === existingProduct.id) {
-            item.quantity++;
-          }
-          return item;
-        })
-      );
+      const modifiedProduct = {
+        ...product,
+        quantity: existingProduct.quantity + 1
+      };
+      this.updateProduct(modifiedProduct);
     } else {
-      const newProduct = { ...product, quantity: 1 };
-
-      this.internalProducts.update((products) => [...products, newProduct]);
+      this.createProduct(product);
     }
   }
 

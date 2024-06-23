@@ -8,25 +8,3 @@
   ></app-product-card>
   }
 </div>
-
-<div class="cart">
-  @for (product of shoppingCart(); track product.id) {
-  <div>
-    {{ product.name }}
-    x
-    <input
-      type="number"
-      [(ngModel)]="product.quantity"
-      (change)="updateProductInCart(product)"
-    />
-    <button
-      class="btn-remove"
-      (click)="removeFromCart(product.id)"
-    >
-      -
-    </button>
-  </div>
-  }
-  <h3>Total: {{ shoppingCartService.totalPrice() }}$</h3>
-  <button (click)="payCart()">Pay for cart</button>
-</div>

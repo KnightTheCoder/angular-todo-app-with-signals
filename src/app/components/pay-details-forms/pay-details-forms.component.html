@@ -1,0 +1,119 @@
+<form
+  [formGroup]="payDetailsGroup"
+  (keyup)="submitPayDetails()"
+>
+  <div>
+    <label for="firstName">Field</label>
+    <input
+      type="text"
+      name="firstName"
+      formControlName="firstName"
+    />
+  </div>
+  @if (firstName()?.hasError('required') && firstName()?.touched) {
+  <span style="color: red">Field is required!</span>
+  }
+
+  <div>
+    <label for="lastName">Last Name</label>
+    <input
+      type="text"
+      name="lastName"
+      formControlName="lastName"
+    />
+  </div>
+  @if (lastName()?.hasError('required') && lastName()?.touched) {
+  <span style="color: red">Field is required!</span>
+  }
+
+  <div>
+    <label for="age">Age</label>
+    <input
+      type="number"
+      name="age"
+      min="0"
+      formControlName="age"
+    />
+  </div>
+  @if (age()?.hasError('required') && age()?.touched) {
+  <span style="color: red">Field is required!</span>
+  }
+
+  <div>
+    <label for="email">Email</label>
+    <input
+      type="email"
+      name="email"
+      formControlName="email"
+    />
+  </div>
+  @if (email()?.hasError('required') && email()?.touched) {
+  <span style="color: red">Field is required!</span>
+  }
+
+  <div>
+    <label for="country">Country</label>
+    <select
+      name="country"
+      formControlName="country"
+    >
+      @for (country of countries; track $index) {
+      <option [value]="country">{{ country }}</option>
+      }
+    </select>
+  </div>
+  @if (country()?.hasError('required') && country()?.touched) {
+  <span style="color: red">Field is required!</span>
+  }
+
+  <div>
+    <label for="postalCode">Postal Code</label>
+    <input
+      type="text"
+      name="postalCode"
+      formControlName="postalCode"
+    />
+  </div>
+  @if (postalCode()?.hasError('required') && postalCode()?.touched) {
+  <span style="color: red">Field is required!</span>
+  }
+
+  <div>
+    <label for="street">Street</label>
+    <input
+      type="text"
+      name="street"
+      formControlName="street"
+    />
+  </div>
+  @if (street()?.hasError('required') && street()?.touched) {
+  <span style="color: red">Field is required!</span>
+  }
+
+  <div>
+    <label for="paymentMethod">Payment Method</label>
+    <select
+      name="paymentMethod"
+      formControlName="paymentMethod"
+    >
+      @for (method of paymentMethods; track $index) {
+      <option [value]="method">{{ method }}</option>
+      }
+    </select>
+  </div>
+  @if (paymentMethod()?.hasError('required') && paymentMethod()?.touched) {
+  <span style="color: red">Field is required!</span>
+  }
+
+  <div>
+    <label for="terms">Accept terms and conditions</label>
+    <input
+      type="checkbox"
+      name="terms"
+      formControlName="acceptTerms"
+    />
+  </div>
+  @if (acceptTerms()?.hasError('required') && acceptTerms()?.touched) {
+  <span style="color: red">Field is required!</span>
+  }
+</form>

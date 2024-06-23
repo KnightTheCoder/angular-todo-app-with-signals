@@ -13,7 +13,7 @@
 
 .container {
   display: grid;
-  grid-template-columns: 300px auto 300px;
+  grid-template-columns: minmax(auto, 200px) auto minmax(auto, 200px);
 }
 
 main {

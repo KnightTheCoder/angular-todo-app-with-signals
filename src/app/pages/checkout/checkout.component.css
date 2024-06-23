@@ -1,0 +1,28 @@
+.cart {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+input {
+  display: inline-block;
+  width: 30px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+button {
+  padding: 10px;
+}
+
+.btn-remove {
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  display: inline-block;
+  background-color: red;
+}
+
+.btn-remove:hover {
+  background-color: lightcoral;
+}

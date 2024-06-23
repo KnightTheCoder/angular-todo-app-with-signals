@@ -48,10 +48,10 @@ export const routes: Routes = [
     title: 'ShopPage'
   },
   {
-    path: 'form',
+    path: 'checkout',
     loadComponent: () =>
-      import('./pages/order-form/order-form.component').then(
-        (comp) => comp.OrderFormComponent
+      import('./pages/checkout/checkout.component').then(
+        (comp) => comp.CheckoutComponent
       ),
     title: 'Order form page'
   }

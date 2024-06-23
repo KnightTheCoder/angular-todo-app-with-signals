@@ -9,6 +9,27 @@ body {
   color: var(--primary-color);
 }
 
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  margin-right: 4px;
+}
+
+a:hover {
+  color: #eee;
+  box-shadow: 0px 2px 0px var(--primary-color);
+}
+
+.active-link {
+  color: rgb(39, 134, 165);
+  box-shadow: 0px 2px 0px rgb(39, 134, 165);
+}
+
+button,
+img {
+  user-select: none;
+}
+
 button {
   border: 1px solid var(--primary-color);
   border-radius: 4px;
@@ -16,7 +37,6 @@ button {
   margin-top: 4px;
   background-color: #232323;
   color: var(--primary-color);
-  user-select: none;
 }
 
 button:hover {
@@ -32,7 +52,7 @@ button[disabled]:hover {
   cursor: default;
 }
 
-input[type='text'] {
+input {
   border-radius: 6px;
   color: var(--primary-color);
   background-color: #232323;
@@ -40,6 +60,6 @@ input[type='text'] {
   margin-right: 10px;
 }
 
-input[type='text']:hover {
+input:hover {
   box-shadow: 2px 4px 6px #ccc;
 }
