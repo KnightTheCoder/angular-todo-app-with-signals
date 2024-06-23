@@ -1,11 +1,12 @@
 import { Component, computed, inject, input, output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormErrorComponent } from '../form-error/form-error.component';
+import { RequiredFieldComponent } from '../required-field/required-field.component';
 
 @Component({
   selector: 'app-pay-details-forms',
   standalone: true,
-  imports: [ReactiveFormsModule, FormErrorComponent],
+  imports: [ReactiveFormsModule, FormErrorComponent, RequiredFieldComponent],
   templateUrl: './pay-details-forms.component.html',
   styleUrl: './pay-details-forms.component.css'
 })

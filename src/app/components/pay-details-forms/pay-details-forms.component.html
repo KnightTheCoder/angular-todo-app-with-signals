@@ -3,7 +3,7 @@
   (change)="submitPayDetails()"
 >
   <div>
-    <label for="firstName">First Name</label>
+    <app-required-field for="firstName">First Name</app-required-field>
     <input
       type="text"
       name="firstName"
@@ -17,7 +17,7 @@
   />
 
   <div>
-    <label for="lastName">Last Name</label>
+    <app-required-field for="lastName">Last Name</app-required-field>
     <input
       type="text"
       name="lastName"
@@ -31,7 +31,7 @@
   />
 
   <div>
-    <label for="age">Age</label>
+    <app-required-field for="age">Age</app-required-field>
     <input
       type="number"
       name="age"
@@ -47,7 +47,7 @@
   />
 
   <div>
-    <label for="email">Email</label>
+    <app-required-field for="email">Email</app-required-field>
     <input
       type="email"
       name="email"
@@ -62,7 +62,7 @@
   />
 
   <div>
-    <label for="country">Country</label>
+    <app-required-field for="country">Country</app-required-field>
     <select
       name="country"
       formControlName="country"
@@ -75,7 +75,7 @@
   <app-form-error [controlElement]="country()" />
 
   <div>
-    <label for="postalCode">Postal Code</label>
+    <app-required-field for="postalCode">Postal Code</app-required-field>
     <input
       type="text"
       name="postalCode"
@@ -89,7 +89,7 @@
   />
 
   <div>
-    <label for="street">Street</label>
+    <app-required-field for="street">Street</app-required-field>
     <input
       type="text"
       name="street"
@@ -103,7 +103,7 @@
   />
 
   <div>
-    <label for="paymentMethod">Payment Method</label>
+    <app-required-field for="paymentMethod">Payment Method</app-required-field>
     <select
       name="paymentMethod"
       formControlName="paymentMethod"
@@ -116,17 +116,14 @@
   <app-form-error [controlElement]="paymentMethod()" />
 
   <div>
-    <label
-      class="terms-label"
-      for="terms"
-    >
+    <app-required-field for="terms">
       <input
         type="checkbox"
         name="terms"
         formControlName="acceptTerms"
       />
       Accept terms and conditions
-    </label>
+    </app-required-field>
   </div>
   <app-form-error [controlElement]="acceptTerms()" />
 </form>
