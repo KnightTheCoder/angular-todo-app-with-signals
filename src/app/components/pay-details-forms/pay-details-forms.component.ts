@@ -1,4 +1,11 @@
-import { Component, computed, inject, input, output } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  input,
+  output,
+  effect
+} from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -48,11 +55,6 @@ export class PayDetailsFormsComponent {
   acceptTerms = computed(() => this.payDetailsGroup.get('acceptTerms'));
 
   submitPayDetails() {
-    this.onDetailsValidityChange.emit(
-      (this.firstName()?.valid &&
-        this.lastName()?.valid &&
-        this.email()?.valid) ??
-        false
-    );
+    this.onDetailsValidityChange.emit(this.payDetailsGroup.valid);
   }
 }

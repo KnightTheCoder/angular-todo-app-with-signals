@@ -3,7 +3,7 @@
   <h3>Shopping cart is empty!</h3>
 
   <a routerLink="/shop"> Back to shop </a>
-  } @for (product of shoppingCart(); track product.id) {
+  } @else { @for (product of shoppingCart(); track product.id) {
   <div>
     {{ product.name }}
     x
@@ -29,8 +29,9 @@
   <h3>Total: {{ shoppingCartService.totalPrice() }}$</h3>
   <button
     (click)="payCart()"
-    [disabled]="!shoppingCart().length"
+    [disabled]="!areDetailsValid()"
   >
     Pay for cart
   </button>
+  }
 </div>

@@ -60,6 +60,13 @@ input {
   margin-right: 10px;
 }
 
-input:hover {
+select {
+  padding: 0.3em;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+
+input:hover,
+select:hover {
   box-shadow: 2px 4px 6px #ccc;
 }
