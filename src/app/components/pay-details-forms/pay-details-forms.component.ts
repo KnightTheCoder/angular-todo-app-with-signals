@@ -33,7 +33,7 @@ export class PayDetailsFormsComponent {
     email: ['', [Validators.required, Validators.pattern('.+@.+')]],
     country: ['', Validators.required],
     postalCode: ['', [Validators.required, Validators.minLength(4)]],
-    street: ['', Validators.required],
+    street: ['', Validators.required, Validators.minLength(4)],
     paymentMethod: ['', Validators.required],
     acceptTerms: [false, Validators.requiredTrue]
   });

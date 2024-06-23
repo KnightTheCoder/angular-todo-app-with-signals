@@ -14,7 +14,6 @@
   <app-form-error
     [controlElement]="firstName()"
     errorType="minlength"
-    errorMessage="Too short!"
   />
 
   <div>
@@ -29,7 +28,6 @@
   <app-form-error
     [controlElement]="lastName()"
     errorType="minlength"
-    errorMessage="Too short!"
   />
 
   <div>
@@ -85,6 +83,10 @@
     />
   </div>
   <app-form-error [controlElement]="postalCode()" />
+  <app-form-error
+    [controlElement]="postalCode()"
+    errorType="minlength"
+  />
 
   <div>
     <label for="street">Street</label>
@@ -95,6 +97,10 @@
     />
   </div>
   <app-form-error [controlElement]="street()" />
+  <app-form-error
+    [controlElement]="street()"
+    errorType="minlength"
+  />
 
   <div>
     <label for="paymentMethod">Payment Method</label>

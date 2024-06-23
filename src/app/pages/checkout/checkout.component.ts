@@ -19,8 +19,10 @@ export class CheckoutComponent {
   router = inject(Router);
 
   shoppingCart = this.shoppingCartService.products;
-
   products = this.productsService.products;
+
+  isPaymentVisible = signal(false);
+  areDetailsValid = signal(false);
 
   removeFromCart(id: number) {
     this.shoppingCartService.deleteProductById(id);
@@ -33,14 +35,25 @@ export class CheckoutComponent {
     });
   }
 
+  getOriginalProductQuantity(product: Product) {
+    let foundProduct = this.productsService.getProductById(product.id);
+    return foundProduct?.quantity ?? 1;
+  }
+
   payCart() {
     this.shoppingCartService.payCart();
     this.router.navigate(['/shop']);
   }
 
-  areDetailsValid = signal(false);
-
   handleDetailsValidityChange(newValue: boolean) {
     this.areDetailsValid.set(newValue);
+  }
+
+  togglePaymentVisible(newState?: boolean) {
+    if (newState) {
+      this.isPaymentVisible.set(newState);
+    } else {
+      this.isPaymentVisible.update((current) => !current);
+    }
   }
 }

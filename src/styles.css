@@ -44,8 +44,12 @@ button:hover {
   cursor: pointer;
 }
 
-button[disabled] {
+[disabled] {
   background-color: #404040;
+}
+
+[disabled]:hover {
+  box-shadow: none;
 }
 
 button[disabled]:hover {
