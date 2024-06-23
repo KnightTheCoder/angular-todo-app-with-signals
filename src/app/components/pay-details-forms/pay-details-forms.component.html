@@ -10,9 +10,12 @@
       formControlName="firstName"
     />
   </div>
-  @if (firstName()?.hasError('required') && firstName()?.touched) {
-  <span class="error">Field is required!</span>
-  }
+  <app-form-error [controlElement]="firstName()" />
+  <app-form-error
+    [controlElement]="firstName()"
+    errorType="minlength"
+    errorMessage="Too short!"
+  />
 
   <div>
     <label for="lastName">Last Name</label>
@@ -22,9 +25,12 @@
       formControlName="lastName"
     />
   </div>
-  @if (lastName()?.hasError('required') && lastName()?.touched) {
-  <span class="error">Field is required!</span>
-  }
+  <app-form-error [controlElement]="lastName()" />
+  <app-form-error
+    [controlElement]="lastName()"
+    errorType="minlength"
+    errorMessage="Too short!"
+  />
 
   <div>
     <label for="age">Age</label>
@@ -35,9 +41,12 @@
       formControlName="age"
     />
   </div>
-  @if (age()?.hasError('required') && age()?.touched) {
-  <span class="error">Field is required!</span>
-  }
+  <app-form-error [controlElement]="age()" />
+  <app-form-error
+    [controlElement]="age()"
+    errorType="min"
+    errorMessage="Must be at least 18 years old"
+  />
 
   <div>
     <label for="email">Email</label>
@@ -47,11 +56,12 @@
       formControlName="email"
     />
   </div>
-  @if (email()?.hasError('required') && email()?.touched) {
-  <span class="error">Field is required!</span>
-  } @else if (email()?.hasError('pattern') && email()?.touched) {
-  <span class="error">Invalid email!</span>
-  }
+  <app-form-error [controlElement]="email()" />
+  <app-form-error
+    [controlElement]="email()"
+    errorType="pattern"
+    errorMessage="Invalid email!"
+  />
 
   <div>
     <label for="country">Country</label>
@@ -64,9 +74,7 @@
       }
     </select>
   </div>
-  @if (country()?.hasError('required') && country()?.touched) {
-  <span class="error">Field is required!</span>
-  }
+  <app-form-error [controlElement]="country()" />
 
   <div>
     <label for="postalCode">Postal Code</label>
@@ -76,9 +84,7 @@
       formControlName="postalCode"
     />
   </div>
-  @if (postalCode()?.hasError('required') && postalCode()?.touched) {
-  <span class="error">Field is required!</span>
-  }
+  <app-form-error [controlElement]="postalCode()" />
 
   <div>
     <label for="street">Street</label>
@@ -88,9 +94,7 @@
       formControlName="street"
     />
   </div>
-  @if (street()?.hasError('required') && street()?.touched) {
-  <span class="error">Field is required!</span>
-  }
+  <app-form-error [controlElement]="street()" />
 
   <div>
     <label for="paymentMethod">Payment Method</label>
@@ -103,19 +107,20 @@
       }
     </select>
   </div>
-  @if (paymentMethod()?.hasError('required') && paymentMethod()?.touched) {
-  <span class="error">Field is required!</span>
-  }
+  <app-form-error [controlElement]="paymentMethod()" />
 
   <div>
-    <label for="terms">Accept terms and conditions</label>
-    <input
-      type="checkbox"
-      name="terms"
-      formControlName="acceptTerms"
-    />
+    <label
+      class="terms-label"
+      for="terms"
+    >
+      <input
+        type="checkbox"
+        name="terms"
+        formControlName="acceptTerms"
+      />
+      Accept terms and conditions
+    </label>
   </div>
-  @if (acceptTerms()?.hasError('required') && acceptTerms()?.touched) {
-  <span class="error">Field is required!</span>
-  }
+  <app-form-error [controlElement]="acceptTerms()" />
 </form>

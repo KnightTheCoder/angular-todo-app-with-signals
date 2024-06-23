@@ -1,17 +1,11 @@
-import {
-  Component,
-  computed,
-  inject,
-  input,
-  output,
-  effect
-} from '@angular/core';
+import { Component, computed, inject, input, output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormErrorComponent } from '../form-error/form-error.component';
 
 @Component({
   selector: 'app-pay-details-forms',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, FormErrorComponent],
   templateUrl: './pay-details-forms.component.html',
   styleUrl: './pay-details-forms.component.css'
 })

@@ -62,8 +62,9 @@ input {
 
 select {
   padding: 0.3em;
-  background-color: var(--background-color);
+  background-color: #232323;
   color: var(--primary-color);
+  border-radius: 1em;
 }
 
 input:hover,

@@ -1,4 +1,6 @@
 <div class="cart">
+  <h1>Your shopping cart's contents</h1>
+
   @if (!shoppingCart().length) {
   <h3>Shopping cart is empty!</h3>
 
@@ -16,22 +18,25 @@
       class="btn-remove"
       (click)="removeFromCart(product.id)"
     >
-      -
+      X
     </button>
   </div>
   }
 
-  <app-pay-details-forms
-    [areDetailsValid]="areDetailsValid()"
-    (onDetailsValidityChange)="handleDetailsValidityChange($event)"
-  ></app-pay-details-forms>
+  <div class="info">
+    <h3>Payment details</h3>
 
-  <h3>Total: {{ shoppingCartService.totalPrice() }}$</h3>
-  <button
-    (click)="payCart()"
-    [disabled]="!areDetailsValid()"
-  >
-    Pay for cart
-  </button>
+    <app-pay-details-forms
+      [areDetailsValid]="areDetailsValid()"
+      (onDetailsValidityChange)="handleDetailsValidityChange($event)"
+    ></app-pay-details-forms>
+    <h3>Total: {{ shoppingCartService.totalPrice() }}$</h3>
+    <button
+      (click)="payCart()"
+      [disabled]="!areDetailsValid()"
+    >
+      Pay for cart
+    </button>
+  </div>
   }
 </div>

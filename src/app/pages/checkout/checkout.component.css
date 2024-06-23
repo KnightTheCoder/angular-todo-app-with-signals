@@ -1,7 +1,14 @@
 .cart {
-  width: 200px;
+  width: fit-content;
   margin: 0 auto;
   text-align: center;
+}
+
+.info {
+  margin-top: 3em;
+  padding: 2em;
+  border-radius: 1em;
+  background-color: #444;
 }
 
 input {
