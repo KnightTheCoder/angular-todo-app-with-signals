@@ -7,7 +7,7 @@ import { AbstractControl } from '@angular/forms';
   imports: [],
   template: `
     @if (controlElement()?.hasError(errorType()) && controlElement()?.touched) {
-    <span class="error">{{ errorMessage() }}</span>
+    <p class="error">{{ errorMessage() }}</p>
     }
   `,
   styleUrl: './form-error.component.css'

@@ -15,6 +15,11 @@
     [controlElement]="firstName()"
     errorType="minlength"
   />
+  <app-form-error
+    [controlElement]="firstName()"
+    errorType="pattern"
+    errorMessage="Must start with uppercase letter"
+  />
 
   <div>
     <app-required-field for="lastName">Last Name</app-required-field>
@@ -28,6 +33,11 @@
   <app-form-error
     [controlElement]="lastName()"
     errorType="minlength"
+  />
+  <app-form-error
+    [controlElement]="lastName()"
+    errorType="pattern"
+    errorMessage="Must start with uppercase letter"
   />
 
   <div>

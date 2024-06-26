@@ -28,8 +28,22 @@ export class PayDetailsFormsComponent {
   onDetailsValidityChange = output<boolean>();
 
   payDetailsGroup = this.fb.group({
-    firstName: ['', [Validators.required, Validators.minLength(2)]],
-    lastName: ['', [Validators.required, Validators.minLength(2)]],
+    firstName: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.pattern('^[A-Z].*$')
+      ]
+    ],
+    lastName: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.pattern('^[A-Z].*$')
+      ]
+    ],
     age: ['', [Validators.required, Validators.min(18)]],
     email: ['', [Validators.required, Validators.pattern('.+@.+')]],
     country: ['', Validators.required],
